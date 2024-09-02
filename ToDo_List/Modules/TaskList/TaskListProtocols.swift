@@ -11,6 +11,8 @@ import Foundation
 
 //MARK: Wireframe -
 protocol TaskListWireframeProtocol: AnyObject {
+    func pushToDetailTask(task: Task)
+    func pushToNewTask(id: Int16)
     
 }
 //MARK: Presenter -
@@ -18,6 +20,8 @@ protocol TaskListPresenterProtocol: AnyObject {
     func fetchData()
     func getTaskList() -> [Task]
     func deleteTask(id: Int16, completion: @escaping () -> Void)
+    func createNewTask(id: Int16)
+    func showDetailTask(task: Task)
 }
 
 //MARK: Interactor -

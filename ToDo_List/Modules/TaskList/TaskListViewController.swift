@@ -33,6 +33,11 @@ final class TaskListViewController: UIViewController, TaskListViewProtocol {
             .foregroundColor: UIColor.systemCyan
         ]
         
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItem = addButton
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
+        navigationItem.leftBarButtonItem = editButton
+        
         setupTaskListTable()
     }
     
@@ -59,6 +64,26 @@ final class TaskListViewController: UIViewController, TaskListViewProtocol {
     
 }
 
+extension TaskListViewController {
+    @objc private func addButtonTapped() {
+        let taskId = presenter?.getTaskList().last?.taskId ?? 0
+        let id = taskId + 1
+        presenter?.createNewTask(id: id)
+    }
+    
+    @objc private func editButtonTapped() {
+        taskListTable.isEditing = true
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
+        navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    @objc private func doneButtonTapped() {
+        taskListTable.isEditing = false
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItem = addButton
+    }
+}
+
 //MARK: - UITableViewDataSource
 extension TaskListViewController: UITableViewDataSource {
     
@@ -79,6 +104,12 @@ extension TaskListViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension TaskListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let task = presenter?.getTaskList()[indexPath.row] else { return }
+        presenter?.showDetailTask(task: task)
+    }
+    
+    //MARK: - Delete Cell
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] (action, view, completionHandler) in
@@ -102,7 +133,7 @@ extension TaskListViewController: UITableViewDelegate {
         configuration.performsFirstActionWithFullSwipe = false
         return configuration
     }
-    
+    //MARK: - Create delete action image
     private func createDeleteActionImage() -> UIImage? {
         let deleteView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
         deleteView.backgroundColor = .systemCyan

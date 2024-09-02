@@ -25,4 +25,14 @@ final class TaskListRouter: TaskListWireframeProtocol {
         
         return view
     }
+    
+    func pushToDetailTask(task: Task) {
+        let vc = TaskDetailRouter.createModule(task: task, id: nil)
+        self.viewController?.navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    func pushToNewTask(id: Int16) {
+        let vc = TaskDetailRouter.createModule(task: nil, id: id)
+        self.viewController?.navigationController?.pushViewController(vc, animated: false)
+    }
 }

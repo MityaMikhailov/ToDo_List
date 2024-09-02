@@ -45,4 +45,12 @@ final class TaskListPresenter: TaskListPresenterProtocol {
         
     }
     
+    func createNewTask(id: Int16) {
+        router.pushToNewTask(id: id)
+    }
+    
+    func showDetailTask(task: Task) {
+        router.pushToDetailTask(task: task)
+    }
+    
 }
