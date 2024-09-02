@@ -21,9 +21,9 @@ extension Task {
     }
 
     @NSManaged public var taskId: Int16
-    @NSManaged public var dateCreate: Date?
+    @NSManaged public var dateCreate: Date
     @NSManaged public var executionStatus: Bool
-    @NSManaged public var taskDescription: String?
+    @NSManaged public var taskDescription: String
     @NSManaged public var taskName: String?
 
 }

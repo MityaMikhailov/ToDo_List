@@ -25,8 +25,10 @@ final class TaskListPresenter: TaskListPresenterProtocol {
 
     func fetchData() {
         interactor?.fetchTasksList{ [weak self] tasks in
-            self?.tasksList = tasks
-            self?.view?.updateTaskListTable()
+            DispatchQueue.main.async {
+                self?.tasksList = tasks
+                self?.view?.updateTaskListTable()
+            }
         }
     }
     

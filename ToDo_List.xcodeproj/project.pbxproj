@@ -23,6 +23,7 @@
 		4D8E88432C85DD8F00608CE6 /* TaskListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E88422C85DD8F00608CE6 /* TaskListAPI.swift */; };
 		4D8E88452C85DDB800608CE6 /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E88442C85DDB800608CE6 /* AlamofireManager.swift */; };
 		4D8E88472C85DDFF00608CE6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E88462C85DDFF00608CE6 /* CoreDataManager.swift */; };
+		4D8E884A2C85E26B00608CE6 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E88492C85E26B00608CE6 /* TaskCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		4D8E88422C85DD8F00608CE6 /* TaskListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListAPI.swift; sourceTree = "<group>"; };
 		4D8E88442C85DDB800608CE6 /* AlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
 		4D8E88462C85DDFF00608CE6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		4D8E88492C85E26B00608CE6 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		4D8E88282C85DA5A00608CE6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4D8E88482C85E25C00608CE6 /* UIComponents */,
 				4D8E882C2C85DAA600608CE6 /* Managers */,
 			);
 			path = Common;
@@ -157,6 +160,14 @@
 				4D8E88322C85DABD00608CE6 /* TaskListInteractor.swift */,
 			);
 			path = TaskList;
+			sourceTree = "<group>";
+		};
+		4D8E88482C85E25C00608CE6 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				4D8E88492C85E26B00608CE6 /* TaskCell.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +259,7 @@
 				4D8E88122C85D8F800608CE6 /* SceneDelegate.swift in Sources */,
 				4D8E88452C85DDB800608CE6 /* AlamofireManager.swift in Sources */,
 				4D8E881A2C85D8F800608CE6 /* ToDo_List.xcdatamodeld in Sources */,
+				4D8E884A2C85E26B00608CE6 /* TaskCell.swift in Sources */,
 				4D8E88432C85DD8F00608CE6 /* TaskListAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
