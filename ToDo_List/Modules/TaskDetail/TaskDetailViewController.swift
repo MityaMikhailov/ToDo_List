@@ -59,6 +59,14 @@ final class TaskDetailViewController: UIViewController, TaskDetailViewProtocol {
         return button
     }()
     
+    private lazy var statusText: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.text = "Выберите статус задачи"
+        label.textColor = .black
+        return label
+    }()
+    
     private lazy var statusControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Не выполнена", "Выполнена"])
         segmentedControl.backgroundColor = .clear
@@ -70,13 +78,21 @@ final class TaskDetailViewController: UIViewController, TaskDetailViewProtocol {
         return segmentedControl
     }()
     
+    private lazy var statusStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.addArrangedSubview(statusText)
+        stack.addArrangedSubview(statusControl)
+        return stack
+    }()
+    
     var executionStatus: Bool?
-
+    //MARK: - View Did Load
 	override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
+    //MARK: - Setup UI
     private func setupUI() {
         
         navigationItem.hidesBackButton = true
@@ -102,7 +118,7 @@ final class TaskDetailViewController: UIViewController, TaskDetailViewProtocol {
         view.addSubview(nameTaskTextView)
         view.addSubview(descriptionTaskLabel)
         view.addSubview(descriptionTextView)
-        view.addSubview(statusControl)
+        view.addSubview(statusStack)
         view.addSubview(saveButton)
         
         nameTaskLabel.snp.makeConstraints {
@@ -128,8 +144,13 @@ final class TaskDetailViewController: UIViewController, TaskDetailViewProtocol {
         }
         
         statusControl.snp.makeConstraints {
+            $0.height.equalToSuperview().multipliedBy(0.6)
+            $0.width.equalToSuperview()
+        }
+        
+        statusStack.snp.makeConstraints {
             $0.width.equalToSuperview().multipliedBy(0.7)
-            $0.height.equalTo(50)
+            $0.height.equalTo(80)
             $0.centerY.equalToSuperview()
             $0.centerX.equalToSuperview()
         }
@@ -183,7 +204,7 @@ extension TaskDetailViewController {
         }
     }
 }
-
+//MARK: - UITextViewDelegate
 extension TaskDetailViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {

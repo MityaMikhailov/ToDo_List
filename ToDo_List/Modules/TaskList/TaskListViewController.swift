@@ -13,17 +13,17 @@ final class TaskListViewController: UIViewController, TaskListViewProtocol {
 
 	var presenter: TaskListPresenterProtocol?
     let taskListTable = UITableView()
-
+    //MARK: - View DidLoad
 	override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
+    //MARK: - View WillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter?.fetchData()
     }
-
+//MARK: - Setup UI
     private func setupUI() {
         view.backgroundColor = .white
         navigationController?.navigationBar.tintColor = .systemCyan
@@ -40,7 +40,7 @@ final class TaskListViewController: UIViewController, TaskListViewProtocol {
         
         setupTaskListTable()
     }
-    
+    //MARK: - Setup TaskList Table
     private func setupTaskListTable() {
         taskListTable.isEditing = false
         taskListTable.register(TaskCell.self, forCellReuseIdentifier: "TaskCell")
