@@ -15,6 +15,11 @@ final class TaskListViewController: UIViewController, TaskListViewProtocol {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
     }
 
+    private func setupUI() {
+        view.backgroundColor = .white
+    }
+    
 }
