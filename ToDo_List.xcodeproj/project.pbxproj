@@ -20,6 +20,8 @@
 		4D8E883A2C85DC3600608CE6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4D8E88392C85DC3600608CE6 /* Alamofire */; };
 		4D8E883D2C85DC4500608CE6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4D8E883C2C85DC4500608CE6 /* SnapKit */; };
 		4D8E88412C85DD0C00608CE6 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E883F2C85DD0C00608CE6 /* Task+CoreDataProperties.swift */; };
+		4D8E88432C85DD8F00608CE6 /* TaskListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E88422C85DD8F00608CE6 /* TaskListAPI.swift */; };
+		4D8E88452C85DDB800608CE6 /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E88442C85DDB800608CE6 /* AlamofireManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		4D8E88312C85DABD00608CE6 /* TaskListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListProtocols.swift; sourceTree = "<group>"; };
 		4D8E88322C85DABD00608CE6 /* TaskListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListInteractor.swift; sourceTree = "<group>"; };
 		4D8E883F2C85DD0C00608CE6 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4D8E88422C85DD8F00608CE6 /* TaskListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListAPI.swift; sourceTree = "<group>"; };
+		4D8E88442C85DDB800608CE6 /* AlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				4D8E883F2C85DD0C00608CE6 /* Task+CoreDataProperties.swift */,
+				4D8E88422C85DD8F00608CE6 /* TaskListAPI.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,6 +139,7 @@
 		4D8E882C2C85DAA600608CE6 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				4D8E88442C85DDB800608CE6 /* AlamofireManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -236,7 +242,9 @@
 				4D8E88372C85DABD00608CE6 /* TaskListInteractor.swift in Sources */,
 				4D8E88102C85D8F800608CE6 /* AppDelegate.swift in Sources */,
 				4D8E88122C85D8F800608CE6 /* SceneDelegate.swift in Sources */,
+				4D8E88452C85DDB800608CE6 /* AlamofireManager.swift in Sources */,
 				4D8E881A2C85D8F800608CE6 /* ToDo_List.xcdatamodeld in Sources */,
+				4D8E88432C85DD8F00608CE6 /* TaskListAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
