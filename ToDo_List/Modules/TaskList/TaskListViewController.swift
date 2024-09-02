@@ -17,9 +17,18 @@ final class TaskListViewController: UIViewController, TaskListViewProtocol {
         super.viewDidLoad()
         setupUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.fetchData()
+    }
 
     private func setupUI() {
         view.backgroundColor = .white
+    }
+    
+    func updateTaskListTable() {
+        
     }
     
 }

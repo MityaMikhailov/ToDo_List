@@ -14,6 +14,8 @@ final class TaskListPresenter: TaskListPresenterProtocol {
     weak private var view: TaskListViewProtocol?
     var interactor: TaskListInteractorProtocol?
     private let router: TaskListWireframeProtocol
+    
+    private var tasksList: [Task]?
 
     init(interface: TaskListViewProtocol, interactor: TaskListInteractorProtocol?, router: TaskListWireframeProtocol) {
         self.view = interface
@@ -21,4 +23,16 @@ final class TaskListPresenter: TaskListPresenterProtocol {
         self.router = router
     }
 
+    func fetchData() {
+        interactor?.fetchTasksList{ [weak self] tasks in
+            self?.tasksList = tasks
+            self?.view?.updateTaskListTable()
+        }
+    }
+    
+    func getTaskList() -> [Task] {
+        guard let tasksList else { return [] }
+        return tasksList
+    }
+    
 }

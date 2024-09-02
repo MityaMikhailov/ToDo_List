@@ -15,17 +15,20 @@ protocol TaskListWireframeProtocol: AnyObject {
 }
 //MARK: Presenter -
 protocol TaskListPresenterProtocol: AnyObject {
-    
+    func fetchData()
+    func getTaskList() -> [Task]
 }
 
 //MARK: Interactor -
 protocol TaskListInteractorProtocol: AnyObject {
     
     var presenter: TaskListPresenterProtocol?  { get set }
+    func fetchTasksList(completion: @escaping ([Task]) -> Void)
 }
 
 //MARK: View -
 protocol TaskListViewProtocol: AnyObject {
     
     var presenter: TaskListPresenterProtocol?  { get set }
+    func updateTaskListTable()
 }
