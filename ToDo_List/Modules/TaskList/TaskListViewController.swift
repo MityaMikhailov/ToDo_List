@@ -79,4 +79,49 @@ extension TaskListViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension TaskListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+            
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] (action, view, completionHandler) in
+            guard let self = self,
+                  let task = self.presenter?.getTaskList()[indexPath.row] else {
+                completionHandler(false)
+                return
+            }
+            let id = task.taskId
+            
+            self.presenter?.deleteTask(id: id) {
+                tableView.deleteRows(at: [indexPath], with: .left)
+                completionHandler(true)
+            }
+        }
+
+        deleteAction.image = createDeleteActionImage()
+        deleteAction.backgroundColor = .white
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
+    }
+    
+    private func createDeleteActionImage() -> UIImage? {
+        let deleteView = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        deleteView.backgroundColor = .systemCyan
+        deleteView.layer.cornerRadius = 30
+        deleteView.clipsToBounds = true
+
+        let trashImageView = UIImageView(image: UIImage(systemName: "trash"))
+        trashImageView.tintColor = .white
+        trashImageView.contentMode = .center
+        trashImageView.frame = CGRect(x: 15, y: 15, width: 30, height: 30)
+        
+        deleteView.addSubview(trashImageView)
+
+        UIGraphicsBeginImageContextWithOptions(deleteView.bounds.size, false, 0)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        deleteView.layer.render(in: context)
+        let actionImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return actionImage
+    }
 }

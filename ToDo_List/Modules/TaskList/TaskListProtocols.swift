@@ -17,6 +17,7 @@ protocol TaskListWireframeProtocol: AnyObject {
 protocol TaskListPresenterProtocol: AnyObject {
     func fetchData()
     func getTaskList() -> [Task]
+    func deleteTask(id: Int16, completion: @escaping () -> Void)
 }
 
 //MARK: Interactor -
@@ -24,6 +25,7 @@ protocol TaskListInteractorProtocol: AnyObject {
     
     var presenter: TaskListPresenterProtocol?  { get set }
     func fetchTasksList(completion: @escaping ([Task]) -> Void)
+    func removeElement(id: Int16, comp: @escaping() -> Void)
 }
 
 //MARK: View -

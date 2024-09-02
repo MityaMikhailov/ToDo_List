@@ -66,4 +66,11 @@ final class TaskListInteractor: TaskListInteractorProtocol {
             }
         }
     }
+    
+    func removeElement(id: Int16, comp: @escaping() -> Void) {
+        CoreDataManager.shared.deleteTask(with: id) {
+            comp()
+        }
+    }
+    
 }

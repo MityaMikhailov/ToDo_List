@@ -37,4 +37,12 @@ final class TaskListPresenter: TaskListPresenterProtocol {
         return tasksList
     }
     
+    func deleteTask(id: Int16, completion: @escaping () -> Void) {
+        self.tasksList?.removeAll { $0.taskId == id }
+        interactor?.removeElement(id: id) {
+            completion()
+        }
+        
+    }
+    
 }
