@@ -22,6 +22,7 @@
 		4D8E88412C85DD0C00608CE6 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E883F2C85DD0C00608CE6 /* Task+CoreDataProperties.swift */; };
 		4D8E88432C85DD8F00608CE6 /* TaskListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E88422C85DD8F00608CE6 /* TaskListAPI.swift */; };
 		4D8E88452C85DDB800608CE6 /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E88442C85DDB800608CE6 /* AlamofireManager.swift */; };
+		4D8E88472C85DDFF00608CE6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8E88462C85DDFF00608CE6 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		4D8E883F2C85DD0C00608CE6 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4D8E88422C85DD8F00608CE6 /* TaskListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListAPI.swift; sourceTree = "<group>"; };
 		4D8E88442C85DDB800608CE6 /* AlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
+		4D8E88462C85DDFF00608CE6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				4D8E88442C85DDB800608CE6 /* AlamofireManager.swift */,
+				4D8E88462C85DDFF00608CE6 /* CoreDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				4D8E88352C85DABD00608CE6 /* TaskListViewController.swift in Sources */,
 				4D8E88362C85DABD00608CE6 /* TaskListProtocols.swift in Sources */,
 				4D8E88372C85DABD00608CE6 /* TaskListInteractor.swift in Sources */,
+				4D8E88472C85DDFF00608CE6 /* CoreDataManager.swift in Sources */,
 				4D8E88102C85D8F800608CE6 /* AppDelegate.swift in Sources */,
 				4D8E88122C85D8F800608CE6 /* SceneDelegate.swift in Sources */,
 				4D8E88452C85DDB800608CE6 /* AlamofireManager.swift in Sources */,
