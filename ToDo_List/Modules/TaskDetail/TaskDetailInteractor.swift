@@ -12,4 +12,27 @@ import UIKit
 final class TaskDetailInteractor: TaskDetailInteractorProtocol {
 
     weak var presenter: TaskDetailPresenterProtocol?
+    
+    func saveResult(id: Int16, newName: String?, newDescription: String?, newStatus: Bool?, completion: @escaping() -> Void) {
+        CoreDataManager.shared.updateTask(
+            with: id,
+            newName: newName,
+            newDescription: newDescription,
+            newStatus: newStatus ?? newStatus
+        ) {
+            completion()
+        }
+    }
+    
+    func createTask(id: Int16, newName: String, newDescription: String, newStatus: Bool?, completion: @escaping () -> Void) {
+        CoreDataManager.shared.createTask(
+            id: id,
+            taskName: newName,
+            taskDescription: newDescription,
+            executionStatus: false,
+            dateCreate: Date.now) {
+                completion()
+            }
+    }
+    
 }

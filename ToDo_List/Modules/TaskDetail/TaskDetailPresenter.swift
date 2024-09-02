@@ -24,5 +24,25 @@ final class TaskDetailPresenter: TaskDetailPresenterProtocol {
         self.task = task
         self.id = id
     }
+    
+    func getTask() -> Task? {
+        return task
+    }
+    
+    func getId() -> Int16? {
+        return id
+    }
+    
+    func updateTask(id: Int16, newName: String?, newDescription: String?, newStatus: Bool?, completion: @escaping () -> Void) {
+        interactor?.saveResult(id: id, newName: newName, newDescription: newDescription, newStatus: newStatus) {
+            completion()
+        }
+    }
+    
+    func addTask(id: Int16, newName: String, newDescription: String, newStatus: Bool?, completion: @escaping () -> Void) {
+        interactor?.createTask(id: id, newName: newName, newDescription: newDescription, newStatus: newStatus) {
+            completion()
+        }
+    }
 
 }

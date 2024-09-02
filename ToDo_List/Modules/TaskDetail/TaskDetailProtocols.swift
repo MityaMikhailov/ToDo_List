@@ -15,13 +15,19 @@ protocol TaskDetailWireframeProtocol: AnyObject {
 }
 //MARK: Presenter -
 protocol TaskDetailPresenterProtocol: AnyObject {
-    
+    func getTask() -> Task?
+    func getId() -> Int16?
+    func updateTask(id: Int16, newName: String?, newDescription: String?, newStatus: Bool?, completion: @escaping() -> Void)
+    func addTask(id: Int16, newName: String, newDescription: String, newStatus: Bool?, completion: @escaping() -> Void)
 }
 
 //MARK: Interactor -
 protocol TaskDetailInteractorProtocol: AnyObject {
     
     var presenter: TaskDetailPresenterProtocol?  { get set }
+    
+    func saveResult(id: Int16, newName: String?, newDescription: String?, newStatus: Bool?, completion: @escaping() -> Void)
+    func createTask(id: Int16, newName: String, newDescription: String, newStatus: Bool?, completion: @escaping () -> Void )
 }
 
 //MARK: View -
